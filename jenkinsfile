@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Pull the latest code from develop branch
+                git branch: 'develop', 
+                    url: 'https://github.com/your-repo.git', 
+                    credentialsId: 'your-git-credentials'
+            }
+        }
+        stage('Copy to Folder') {
+            steps {
+                script {
+                    def targetDir = '/var/www/deploy-folder' // Change path as needed
+                    sh "rm -rf ${targetDir}/*"
+                    sh "cp -r * ${targetDir}/"
+                }
+            }
+        }
+    }
+}
