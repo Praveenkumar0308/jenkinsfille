@@ -1,6 +1,7 @@
 pipeline {
     agent any  // Runs on any available Jenkins agent/node
-      stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
+      stages{
+        stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
             steps {
                 sh 'sudo mkdir -p /new/git'
   // Ensure target directory exists
@@ -8,3 +9,4 @@ pipeline {
             }
         }
     }
+}
