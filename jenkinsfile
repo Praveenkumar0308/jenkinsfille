@@ -10,9 +10,9 @@ pipeline {
 
         stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
             steps {
-                sh 'mkdir -p ${WORKSPACE}/git-content'
+                sh 'mkdir -p ${WORKSPACE}/git'
   // Ensure target directory exists
-                sh 'cp -r * ${WORKSPACE}'  // Copy all repository files to target
+                sh 'cp -r * ${WORKSPACE}/git'  // Copy all repository files to target
             }
         }
     }
