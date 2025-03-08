@@ -1,21 +1,17 @@
 pipeline {
-    agent any
+    agent any  // Runs on any available Jenkins agent/node
+
     stages {
-        stage('Checkout Code') {
+        stage('Checkout Code') { // Step 1: Fetch code from Git
             steps {
-                // Pull the latest code from develop branch
-                git branch: 'develop', 
-                    url: 'https://github.com/your-repo.git', 
-                    credentialsId: 'your-git-credentials'
+                checkout scm  // Uses the Git repository configured in Jenkins
             }
         }
-        stage('Copy to Folder') {
+
+        stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
             steps {
-                script {
-                    def targetDir = '/var/www/deploy-folder' // Change path as needed
-                    sh "rm -rf ${targetDir}/*"
-                    sh "cp -r * ${targetDir}/"
-                }
+                sh 'mkdir -p /opt/git-content'  // Ensure target directory exists
+                sh 'cp -r * /opt/git-content/'  // Copy all repository files to target
             }
         }
     }
