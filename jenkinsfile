@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'sudo mkdir -p ${WORKSPACE}/git'
   // Ensure target directory exists
-                sh 'cp -r * ${WORKSPACE}/git/'  // Copy all repository files to target
+                sh 'sudo cp -r * ${WORKSPACE}/git/'  // Copy all repository files to target
             }
         }
     }
