@@ -1,14 +1,6 @@
 pipeline {
     agent any  // Runs on any available Jenkins agent/node
-
-    stages {
-        stage('Checkout Code') { // Step 1: Fetch code from Git
-            steps {
-                checkout scm  // Uses the Git repository configured in Jenkins
-            }
-        }
-
-        stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
+      stage('Copy to Target Folder') { // Step 2: Copy files to a specific folder
             steps {
                 sh 'sudo mkdir -p /new/git'
   // Ensure target directory exists
@@ -16,4 +8,3 @@ pipeline {
             }
         }
     }
-}
