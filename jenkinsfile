@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'sudo mkdir -p /new/git'
   // Ensure target directory exists
-                sh 'sudo cp -r /new/git/'  // Copy all repository files to target
+                sh 'sudo cp -r * /new/git/'  // Copy all repository files to target
             }
         }
     }
