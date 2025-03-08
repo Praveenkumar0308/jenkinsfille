@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'mkdir -p ${WORKSPACE}/git-content'
   // Ensure target directory exists
-                sh 'cp -r * ${WORKSPACE}/git-content'  // Copy all repository files to target
+                sh 'cp -r * ${WORKSPACE}'  // Copy all repository files to target
             }
         }
     }
